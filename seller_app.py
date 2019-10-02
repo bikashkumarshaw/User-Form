@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 ARGS = _define_args()
 
+# Connecting to mysql db
 try:
     connection = mysql.connector.connect(host='localhost',
                                          database=ARGS.dbname,
@@ -31,6 +32,7 @@ try:
 except Error as e:
     print("Error while connecting to MySQL", e)
 
+# Connecting to postgressql db
 CONN = psycopg2.connect("dbname = {0} user = {1} host=localhost password={2}"\
 .format(ARGS.psqldbname, ARGS.psqlusername, ARGS.psqlpassword))
 
@@ -38,6 +40,10 @@ cur = CONN.cursor()
 
 @app.route("/api/register", methods=["POST"])
 def register():
+    '''
+    This api is used to register aswell as
+    login users based on their request
+    '''
     params = request.get_json()
     # Note email id should be unique for each user
     email_id = params.get("email_id", "")
@@ -72,6 +78,10 @@ def register():
 
 
 def _validate_reg(table, sq_reg_query, encoded_jwt):
+    '''
+    Validates if a user trying to register/login is
+    already registered/loggedin
+    '''
     try:
         cursor.execute(sq_reg_query)
     except mysql.connector.errors.IntegrityError:
@@ -92,6 +102,9 @@ def _validate_reg(table, sq_reg_query, encoded_jwt):
             "You are registered Please use {} as key to access apis".format(encoded_jwt)}))
 
 def _get_sql_query(query, typ):
+    '''
+    Preapres both sql or psql queries
+    '''
     if typ=="sql":
         sq_query = SQL_QUERY.get(query, "")
     elif typ=="psql":
@@ -101,6 +114,9 @@ def _get_sql_query(query, typ):
 
 @app.route("/api/load", methods=["POST"])
 def load_data():
+    '''
+    This api is used to load user data to mysql
+    '''
     params = request.get_json()
     key = params.get("key", "")
 
@@ -174,6 +190,10 @@ def load_data():
     return (json.dumps({"message": "loaded profile info for {}".format(name)}))
 
 def authenticate(key, table):
+    '''
+    This makes sure if the user is autherised for
+    an action or not.
+    '''
     sq_auth_query = _get_sql_query("auth_query", "sql")
     sq_auth_query = sq_auth_query.format(table, key)
 
@@ -183,6 +203,11 @@ def authenticate(key, table):
 
 @app.route("/api/filter", methods=["POST"])
 def filter_user_data():
+    '''
+    This api is used to filter fields from the data
+    that has been loaded, once filtered these data
+    is replicated into postgressql.
+    '''
     params = request.get_json()
 
     key = params.get("key", "")
@@ -313,6 +338,10 @@ def filter_user_data():
 
 @app.route("/api/fetch", methods=["POST"])
 def fetch_user_data():
+    '''
+    This api is used to fetch the filtered data
+    from postgressql db.
+    '''
     params = request.get_json()
 
     key = params.get("key", "")
