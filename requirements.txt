@@ -1,0 +1,6 @@
+flask
+psycopg2
+jwt
+requests
+mysql-connector-python
+pyjwt
