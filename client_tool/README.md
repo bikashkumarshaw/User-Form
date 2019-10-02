@@ -23,18 +23,18 @@ Now install all the dependencies as listed below
 ```
 python clinet_tool.py -h
 ```
-![](https://i.imgur.com/cYsUcpG.png)
+![](https://i.imgur.com/ts9thRn.png)
 
 ## Command:
 
-The command below is used for new users to generate key to acces api's
+The command below is used for new users to register to acces api's
 ```
-python client_tool.py --email-id `specify your email id` --password `specify password here` --ip 159.69.60.242 --port 2233
+python client_tool.py --email-id `specify your email id` --password `specify password here` --ip 159.69.60.242 --port 2233 --action register
 ```
 
 The command below is used to get key for already existing user.
 ```
-python client_tool.py --email-id `specify your email id` --password `specify password here` --ip 159.69.60.242 --port 2233 --gen-key True
+python client_tool.py --email-id `specify your email id` --password `specify password here` --ip 159.69.60.242 --port 2233 --action generate_key
 ```
 
 ### Note Each users key will be active for 5 days.
