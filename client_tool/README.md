@@ -1,6 +1,12 @@
 # Client tool:
 
-## This tool is used to generate jwt key for users.
+### This tool is used to perform all actions as below:
+    resgister
+    login
+    load
+    filter
+    fetch
+    generate-key
 
 # Install Virtual Environment:
 ```
