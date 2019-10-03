@@ -29,7 +29,7 @@ Now install all the dependencies as listed below
 ```
 python clinet_tool.py -h
 ```
-![](https://i.imgur.com/ts9thRn.png)
+![](https://i.imgur.com/CzuxAsT.png)
 
 ## Command:
 
