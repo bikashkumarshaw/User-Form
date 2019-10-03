@@ -54,3 +54,4 @@ register (Used to register users)
 login (Used by users to login)
 ```
 
+## Note you need to use client tool to request the service.
