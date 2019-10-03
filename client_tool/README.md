@@ -77,7 +77,7 @@ python client_tool.py --key eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5
 
 #### fetch:
 ```
-python client_tool.py --key eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5pa2hpbEBkZWVwY29tcHV0ZS5jb20ifQ.cLnKYsZeL3-w2bXJFMCotSQaw3M0s6RSH_kEfaR568w --ip 159.69.60.242 --port 2233 --action filter --filter-fields 'name,age,city' --age 'all:20 --city bangalore --state karnataka --name bikash
+python client_tool.py --key eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5pa2hpbEBkZWVwY29tcHV0ZS5jb20ifQ.cLnKYsZeL3-w2bXJFMCotSQaw3M0s6RSH_kEfaR568w --ip 159.69.60.242 --port 2233 --action fetch --filter-fields 'name,age,city' --age 'all:20 --city bangalore --state karnataka --name bikash
 ```
 
 ### Note Each users will be logged in for 5 days.
