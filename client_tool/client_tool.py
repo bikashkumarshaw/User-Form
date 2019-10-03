@@ -87,8 +87,8 @@ class ClientTool(object):
         parser.add_argument("--address", type=str, help= "specify the address", default="")
         parser.add_argument("--name", type=str, help= "specify specify user's name", default="")
         parser.add_argument("--dob", type=str, help= "specify users dob eg. '1995-09-09'", default="")
-        parser.add_argument("--misc", type=str, help= "specify misc in key value pairs \
-                where each pair is separated by space and key value separated by ':' eg. k1:v1 k2:v2", default="")
+        parser.add_argument("--misc", type=str, help= "specify misc in key value like dictionary \
+                                                            eg. '{"name": "bikash"}'" default="")
         parser.add_argument("--number", type=str, help= "specify the phone number", default="")
         parser.add_argument("--key", type=str, help= "specify your key", default="")
         parser.add_argument("--filter-fields", type=str, help= "specify fields to be filtered", default="")
