@@ -1,7 +1,7 @@
 # Client tool:
 
 ### This tool is used to perform all actions as below:
-    resgister
+    register
     login
     load
     filter
@@ -43,4 +43,19 @@ The command below is used to get key for already existing user.
 python client_tool.py --email-id `specify your email id` --password `specify password here` --ip 159.69.60.242 --port 2233 --action generate_key
 ```
 
-### Note Each users key will be active for 5 days.
+The command below is used to login.
+```
+python client_tool.py --email-id `specify your email id` --password `specify password here` --ip 159.69.60.242 --port 2233 --action login
+```
+
+The command below is used to load data.
+```
+python client_tool.py --key 'specify your generated key here` --ip 159.69.60.242 --port 2233 --action load --age `specify the age` --city `specify city` --state `specify state` --pin `specify pin` --address `specify address` --name `specify user name here` --dob `specify users dob eg. '1995-09-09'` --misc specify misc in key value like dictionary eg. '{"name": "bikash"}'` --number `specify the phone number`
+```
+
+The command below is used to fetch data.
+```
+python client_tool.py --key 'specify you generated key here` --ip 159.69.60.242 --port 2233 --action fetch --filter-fields `This field is the colums you want to see these are comma separetd eg. name,age,city` --age `optional we can keep this as a number 10 or all:20 or 20:all` --city `optional this is the where clause filter` --state `optional this is the where clause filter` --name `optional this is the where clause filter` --key `specify your generated key here`
+
+
+### Note Each users will be logged in for 5 days.
